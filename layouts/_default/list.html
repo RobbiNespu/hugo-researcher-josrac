@@ -3,7 +3,8 @@
     <h1>{{ .Title }}</h1>
     <ul>
         {{ range .Pages }}
-            <li><a href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Date.Format "2006-01-02" }} | {{ .Title }}</a></li>
+            <!-- <li><a href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Date.Format "2006-01-02" }} | {{ .Title }}</a></li> -->
+            <li><a href="{{ default .RelPermalink }}">{{ .Date.Format "2006-01-02" }} | {{ .Title }}</a></li>
         {{ end }}
     </ul>
 </div>

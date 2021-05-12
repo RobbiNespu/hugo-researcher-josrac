@@ -1,5 +1,6 @@
 {{ define "main" }}
 <div class="container">
+    {{ if .Params.externalLink }} You will be re-direct to: <br/>- <a href="{{ .Params.externalLink }}">{{ .Params.externalLink }}</a> {{ end }}
     {{ .Content }}
 </div>
 {{ end }}
