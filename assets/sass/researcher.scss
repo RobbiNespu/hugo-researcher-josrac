@@ -8,6 +8,7 @@ $red: {{ .Param "style.colorRed" | default "#dc3545" }};
 
 // Font
 $font-family: {{ .Param "style.fontFamily" | default "Inconsolata" }};
+$font-size: {{ .Param "style.fontSize" | default "14pt" }};
 
 // Margins
 $y-small: 0.6rem;
@@ -46,6 +47,7 @@ $y-medium: 1.0rem;
 * {
     color: $black;
     font-family: $font-family;
+    font-size: $font-size;
     line-height: 1.2;
 }
 .container {
@@ -91,9 +93,15 @@ $y-medium: 1.0rem;
         counter-reset: list;
         list-style: none;
         padding-left: 2rem;
+        & > li {
+            display: table-row;
+        }
         & > li:before {
             content: "[" counter(list, decimal) "] ";
             counter-increment: list;
+            display: table-cell;
+            text-align: right;
+            padding-right: .5em;
         }
     }
     .container > ol, .footnotes > ol {
@@ -102,6 +110,10 @@ $y-medium: 1.0rem;
     ul {
         list-style: inside;
         padding-left: 2rem;
+        & > li {
+            list-style-position: outside;
+            margin-left: 1em;
+        }
     }
     .container > ul, .footnotes > ul {
         padding-left: 0;
